@@ -24,7 +24,7 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
   </head>
-  <body style="background-color: white">
+  <body class="">
     <nav class="header">
       <div class="left-section">
         <img
@@ -55,6 +55,14 @@
         </button>
       </div>
       <div class="right-section">
+        <button class="right-section-buttons" data-title="Mode">
+          <img
+            src="Assets/icons/dark-mode-svgrepo-com.svg"
+            class="dark-mode-icon"
+            id="switch-mode"
+            alt=""
+          />
+        </button>
         <button class="right-section-buttons" data-title="Create">
           <img src="Assets/icons/upload.svg" class="upload-icon" alt="" />
         </button>
@@ -114,12 +122,55 @@
       </section>
       <img style="border-radius: 30%" src="Assets/logo/ducky.jpg" />
       <h1>Nguyễn Tiến Đạt - B19DCCN175</h1>
-      <button style="border-radius: 20px; margin: 5px; font-size: 15px;">Tùy chỉnh kênh</button>
-      <button style="border-radius: 20px; margin: 5px; font-size: 15px;">Quản lý video</button
+      <button style="border-radius: 20px; margin: 5px; font-size: 15px">
+        Tùy chỉnh kênh
+      </button>
+      <button style="border-radius: 20px; margin: 5px; font-size: 15px">
+        Quản lý video</button
       ><br />
-      <button style="border: none; background-color: white; margin: 5px; font-size: 20px;">Trang chủ</button>
-      <button style="border: none; background-color: white; margin: 5px; font-size: 20px;">Danh sách phát</button>
-      <button style="border: none; background-color: white; margin: 5px; font-size: 20px;">Cộng đồng</button>
+      <button
+        style="
+          border: none;
+          background-color: white;
+          margin: 5px;
+          font-size: 20px;
+        "
+      >
+        Trang chủ
+      </button>
+      <button
+        style="
+          border: none;
+          background-color: white;
+          margin: 5px;
+          font-size: 20px;
+        "
+      >
+        Danh sách phát
+      </button>
+      <button
+        style="
+          border: none;
+          background-color: white;
+          margin: 5px;
+          font-size: 20px;
+        "
+      >
+        Cộng đồng
+      </button>
     </body>
+
+    <script>
+      const body = document.body;
+      const switch_mode = document.querySelector("#switch-mode");
+      let mode = localStorage.getItem("darkmode");
+      if (mode == "true") {
+        body.classList.add("dark");
+      }
+      switch_mode.addEventListener("click", () => {
+        let mode = body.classList.toggle("dark");
+        localStorage.setItem("darkmode", mode);
+      });
+    </script>
   </body>
 </html>

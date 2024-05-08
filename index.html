@@ -25,7 +25,7 @@
     />
   </head>
 
-  <body>
+  <body class="">
     <!-- header -->
     <nav class="header">
       <div class="left-section">
@@ -57,6 +57,14 @@
         </button>
       </div>
       <div class="right-section">
+        <button class="right-section-buttons" data-title="Mode">
+          <img
+            src="Assets/icons/dark-mode-svgrepo-com.svg"
+            class="dark-mode-icon"
+            id="switch-mode"
+            alt=""
+          />
+        </button>
         <button class="right-section-buttons" data-title="Create">
           <img src="Assets/icons/upload.svg" class="upload-icon" alt="" />
         </button>
@@ -481,5 +489,18 @@
       <p>Made with <i class="fa fa-heart-o"></i> by RANIT</p>
       <p>© 2023 Ranit Manik</p>
     </footer>
+
+    <script>
+      const body = document.body;
+      const switch_mode = document.querySelector("#switch-mode");
+      let mode = localStorage.getItem("darkmode");
+      if (mode == "true") {
+        body.classList.add("dark");
+      }
+      switch_mode.addEventListener("click", () => {
+        let mode = body.classList.toggle("dark");
+        localStorage.setItem("darkmode", mode);
+      });
+    </script>
   </body>
 </html>
